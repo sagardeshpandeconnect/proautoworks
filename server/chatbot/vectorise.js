@@ -1,10 +1,11 @@
-import "dotenv/config";
+import dotenv from "dotenv";
 import { OpenAIEmbeddings } from "@langchain/openai";
 import { MongoDBAtlasVectorSearch } from "@langchain/mongodb";
 import { MongoClient } from "mongodb";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { TextLoader } from "langchain/document_loaders/fs/text";
 
+dotenv.config({ path: ".env.development" });
 const mongoUrl = process.env.MONGO_URL;
 const openAIApiKey = process.env.OPENAI_API_KEY;
 const client = new MongoClient(mongoUrl);
